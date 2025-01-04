@@ -83,6 +83,16 @@ namespace KrispyKreme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap doughnuts {
+            get {
+                object obj = ResourceManager.GetObject("doughnuts", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap KrispyKreme {
             get {
                 object obj = ResourceManager.GetObject("KrispyKreme", resourceCulture);

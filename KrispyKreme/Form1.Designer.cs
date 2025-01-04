@@ -57,11 +57,17 @@
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
+            btnNext_Click = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // lblCustomerName
@@ -111,11 +117,11 @@
             // 
             lblTotalProductA.AutoSize = true;
             lblTotalProductA.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblTotalProductA.Location = new Point(984, 583);
+            lblTotalProductA.Location = new Point(1013, 582);
             lblTotalProductA.Name = "lblTotalProductA";
-            lblTotalProductA.Size = new Size(182, 45);
+            lblTotalProductA.Size = new Size(56, 45);
             lblTotalProductA.TabIndex = 4;
-            lblTotalProductA.Text = "Total Price";
+            lblTotalProductA.Text = "₹0";
             lblTotalProductA.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblProductB
@@ -132,11 +138,11 @@
             // 
             lblTotalProductB.AutoSize = true;
             lblTotalProductB.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblTotalProductB.Location = new Point(984, 733);
+            lblTotalProductB.Location = new Point(1013, 732);
             lblTotalProductB.Name = "lblTotalProductB";
-            lblTotalProductB.Size = new Size(182, 45);
+            lblTotalProductB.Size = new Size(56, 45);
             lblTotalProductB.TabIndex = 6;
-            lblTotalProductB.Text = "Total Price";
+            lblTotalProductB.Text = "₹0";
             lblTotalProductB.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblProductC
@@ -153,11 +159,11 @@
             // 
             lblTotalProductC.AutoSize = true;
             lblTotalProductC.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblTotalProductC.Location = new Point(984, 883);
+            lblTotalProductC.Location = new Point(1013, 882);
             lblTotalProductC.Name = "lblTotalProductC";
-            lblTotalProductC.Size = new Size(182, 45);
+            lblTotalProductC.Size = new Size(56, 45);
             lblTotalProductC.TabIndex = 8;
-            lblTotalProductC.Text = "Total Price";
+            lblTotalProductC.Text = "₹0";
             lblTotalProductC.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblProductD
@@ -174,44 +180,45 @@
             // 
             lblTotalProductD.AutoSize = true;
             lblTotalProductD.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblTotalProductD.Location = new Point(984, 1018);
+            lblTotalProductD.Location = new Point(1013, 1017);
             lblTotalProductD.Name = "lblTotalProductD";
-            lblTotalProductD.Size = new Size(182, 45);
+            lblTotalProductD.Size = new Size(56, 45);
             lblTotalProductD.TabIndex = 10;
-            lblTotalProductD.Text = "Total Price";
+            lblTotalProductD.Text = "₹0";
             lblTotalProductD.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblOverallTotal
             // 
             lblOverallTotal.AutoSize = true;
             lblOverallTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblOverallTotal.ForeColor = Color.Red;
-            lblOverallTotal.Location = new Point(339, 1133);
+            lblOverallTotal.ForeColor = Color.FromArgb(255, 128, 128);
+            lblOverallTotal.Location = new Point(447, 1134);
             lblOverallTotal.Name = "lblOverallTotal";
-            lblOverallTotal.Size = new Size(98, 45);
+            lblOverallTotal.Size = new Size(56, 45);
             lblOverallTotal.TabIndex = 11;
-            lblOverallTotal.Text = "Total";
+            lblOverallTotal.Text = "₹0";
             // 
             // lblDiscount
             // 
             lblDiscount.AutoSize = true;
             lblDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             lblDiscount.ForeColor = Color.LightGray;
-            lblDiscount.Location = new Point(761, 1133);
+            lblDiscount.Location = new Point(869, 1134);
             lblDiscount.Name = "lblDiscount";
-            lblDiscount.Size = new Size(151, 45);
+            lblDiscount.Size = new Size(56, 45);
             lblDiscount.TabIndex = 12;
-            lblDiscount.Text = "Discount";
+            lblDiscount.Text = "₹0";
             // 
             // lblFinalPrice
             // 
             lblFinalPrice.AutoSize = true;
             lblFinalPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lblFinalPrice.Location = new Point(1242, 1133);
+            lblFinalPrice.ForeColor = Color.LightGreen;
+            lblFinalPrice.Location = new Point(1350, 1134);
             lblFinalPrice.Name = "lblFinalPrice";
-            lblFinalPrice.Size = new Size(95, 45);
+            lblFinalPrice.Size = new Size(56, 45);
             lblFinalPrice.TabIndex = 13;
-            lblFinalPrice.Text = "Final";
+            lblFinalPrice.Text = "₹0";
             // 
             // btnCalculate
             // 
@@ -219,7 +226,7 @@
             btnCalculate.FlatAppearance.BorderColor = Color.FromArgb(0, 160, 70);
             btnCalculate.FlatStyle = FlatStyle.Flat;
             btnCalculate.ForeColor = Color.White;
-            btnCalculate.Location = new Point(529, 1221);
+            btnCalculate.Location = new Point(494, 1219);
             btnCalculate.Name = "btnCalculate";
             btnCalculate.Size = new Size(150, 46);
             btnCalculate.TabIndex = 14;
@@ -233,7 +240,7 @@
             btnClear.FlatAppearance.BorderColor = Color.FromArgb(0, 160, 70);
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(984, 1221);
+            btnClear.Location = new Point(949, 1219);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(150, 46);
             btnClear.TabIndex = 15;
@@ -357,12 +364,75 @@
             pictureBox5.TabIndex = 27;
             pictureBox5.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.BackColor = Color.Transparent;
+            pictureBox6.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox6.ErrorImage = Properties.Resources.doughnuts;
+            pictureBox6.Image = Properties.Resources.doughnuts;
+            pictureBox6.InitialImage = Properties.Resources.doughnuts;
+            pictureBox6.Location = new Point(405, 425);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(664, 120);
+            pictureBox6.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox6.TabIndex = 28;
+            pictureBox6.TabStop = false;
+            // 
+            // btnNext_Click
+            // 
+            btnNext_Click.BackColor = Color.Transparent;
+            btnNext_Click.FlatStyle = FlatStyle.Flat;
+            btnNext_Click.Location = new Point(712, 1219);
+            btnNext_Click.Name = "btnNext_Click";
+            btnNext_Click.Size = new Size(150, 46);
+            btnNext_Click.TabIndex = 29;
+            btnNext_Click.Text = "Next";
+            btnNext_Click.UseVisualStyleBackColor = false;
+            btnNext_Click.Click += btnNext_Click_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(343, 1134);
+            label1.Name = "label1";
+            label1.Size = new Size(98, 45);
+            label1.TabIndex = 30;
+            label1.Text = "Total";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(712, 1134);
+            label2.Name = "label2";
+            label2.Size = new Size(151, 45);
+            label2.TabIndex = 31;
+            label2.Text = "Discount";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            label3.Location = new Point(1249, 1134);
+            label3.Name = "label3";
+            label3.Size = new Size(95, 45);
+            label3.TabIndex = 32;
+            label3.Text = "Final";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1554, 1329);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnNext_Click);
+            Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
@@ -403,6 +473,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -437,5 +508,10 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
+        private Button btnNext_Click;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }

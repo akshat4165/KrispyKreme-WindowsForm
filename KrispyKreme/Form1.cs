@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace KrispyKreme
 {
-
     public partial class Form1 : Form
     {
         public Form1()
@@ -13,10 +13,9 @@ namespace KrispyKreme
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Your initialization code here
-            // For example, you can load default values or setup UI elements
-            MessageBox.Show("Welcome To KrispyKreme!");
+            // No message box, directly load the app
         }
+
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             // Unit prices
@@ -62,7 +61,6 @@ namespace KrispyKreme
             lblDiscount.Text = "₹" + discount.ToString();
             lblFinalPrice.Text = "₹" + finalPrice.ToString();
         }
-
 
         private int GetQuantity(TextBox textBox)
         {
@@ -119,6 +117,73 @@ namespace KrispyKreme
             lblDiscount.Text = "₹0";
             lblFinalPrice.Text = "₹0";
         }
+
+        private void btnNext_Click_Click(object sender, EventArgs e)
+        {
+            // Validate customer details (Name, ID, and Phone)
+            if (string.IsNullOrEmpty(txtCustomerName.Text) || string.IsNullOrEmpty(txtCustomerID.Text) || string.IsNullOrEmpty(txtCustomerPhone.Text))
+            {
+                MessageBox.Show("Please fill in all customer details before proceeding.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Retrieve customer details
+            string customerName = txtCustomerName.Text;
+            string customerID = txtCustomerID.Text;
+            string customerPhone = txtCustomerPhone.Text;
+
+            // Initialize the bill details string
+            StringBuilder billDetails = new StringBuilder();
+            billDetails.AppendLine("----- KRISPY KREME BILL -----");
+            billDetails.AppendLine($"Customer Name: {customerName}");
+            billDetails.AppendLine($"Customer ID: {customerID}");
+            billDetails.AppendLine($"Phone: {customerPhone}");
+            billDetails.AppendLine("----------------------------------");
+
+            // Unit prices
+            int unitPriceA = 100;
+            int unitPriceB = 135;
+            int unitPriceC = 150;
+            int unitPriceD = 155;
+
+            // Calculate and add products to the bill
+            int qtyA = GetQuantity(txtQtyProductA);
+            int qtyB = GetQuantity(txtQtyProductB);
+            int qtyC = GetQuantity(txtQtyProductC);
+            int qtyD = GetQuantity(txtQtyProductD);
+
+            if (qtyA > 0)
+            {
+                int totalA = qtyA * unitPriceA;
+                billDetails.AppendLine($"Original Glaze: {qtyA} x ₹{unitPriceA} = ₹{totalA}");
+            }
+            if (qtyB > 0)
+            {
+                int totalB = qtyB * unitPriceB;
+                billDetails.AppendLine($"Caramel Glazed: {qtyB} x ₹{unitPriceB} = ₹{totalB}");
+            }
+            if (qtyC > 0)
+            {
+                int totalC = qtyC * unitPriceC;
+                billDetails.AppendLine($"Sparkle: {qtyC} x ₹{unitPriceC} = ₹{totalC}");
+            }
+            if (qtyD > 0)
+            {
+                int totalD = qtyD * unitPriceD;
+                billDetails.AppendLine($"Chocolate Sprinkle: {qtyD} x ₹{unitPriceD} = ₹{totalD}");
+            }
+
+            // Include overall totals and discount
+            billDetails.AppendLine("----------------------------------");
+            billDetails.AppendLine($"Overall Total: {lblOverallTotal.Text}");
+            billDetails.AppendLine($"Discount: {lblDiscount.Text}");
+            billDetails.AppendLine($"Final Price: {lblFinalPrice.Text}");
+            billDetails.AppendLine("----------------------------------");
+            billDetails.AppendLine("Thank you for visiting Krispy Kreme!");
+
+            this.Hide();
+            Form2 form2 = new Form2(billDetails.ToString());
+            form2.Show();
+        }
     }
 }
-
