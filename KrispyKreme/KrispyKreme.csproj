@@ -6,11 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>KrispyKreme.ico</ApplicationIcon>
+    <ApplicationIcon>donut_icon_125615.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="KrispyKreme.ico" />
+    <Content Include="donut_icon_125615.ico" />
   </ItemGroup>
 
   <ItemGroup>
