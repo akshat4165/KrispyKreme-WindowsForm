@@ -6,6 +6,7 @@ Create Database and Tables in MySQL Database using the below commands:
 CREATE DATABASE krispykreme;
 USE krispykreme;
 '''
+
 '''
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
