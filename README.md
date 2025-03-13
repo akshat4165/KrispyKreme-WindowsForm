@@ -1,5 +1,6 @@
 # KrispyKreme
 
+Change the id and password in the DatabaseHelper.cs according to your database.
 Create Database and Tables in MySQL Database using the below commands:
 
 ```
