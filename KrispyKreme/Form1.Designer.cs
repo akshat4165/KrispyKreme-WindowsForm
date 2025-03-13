@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblCustomerName = new Label();
-            lblCustomerID = new Label();
             lblCustomerPhone = new Label();
             lblProductA = new Label();
             lblTotalProductA = new Label();
@@ -50,7 +49,6 @@
             txtQtyProductA = new TextBox();
             txtQtyProductB = new TextBox();
             txtCustomerName = new TextBox();
-            txtCustomerID = new TextBox();
             txtCustomerPhone = new TextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -62,6 +60,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            lbl_billid = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -74,29 +73,18 @@
             // 
             lblCustomerName.AutoSize = true;
             lblCustomerName.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic);
-            lblCustomerName.Location = new Point(405, 183);
+            lblCustomerName.Location = new Point(405, 193);
             lblCustomerName.Name = "lblCustomerName";
             lblCustomerName.Padding = new Padding(10);
-            lblCustomerName.Size = new Size(150, 71);
+            lblCustomerName.Size = new Size(330, 71);
             lblCustomerName.TabIndex = 0;
-            lblCustomerName.Text = "Name";
-            // 
-            // lblCustomerID
-            // 
-            lblCustomerID.AutoSize = true;
-            lblCustomerID.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic);
-            lblCustomerID.Location = new Point(405, 256);
-            lblCustomerID.Name = "lblCustomerID";
-            lblCustomerID.Padding = new Padding(10);
-            lblCustomerID.Size = new Size(263, 71);
-            lblCustomerID.TabIndex = 1;
-            lblCustomerID.Text = "Customer ID";
+            lblCustomerName.Text = "Customer Name";
             // 
             // lblCustomerPhone
             // 
             lblCustomerPhone.AutoSize = true;
             lblCustomerPhone.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic);
-            lblCustomerPhone.Location = new Point(405, 333);
+            lblCustomerPhone.Location = new Point(405, 288);
             lblCustomerPhone.Name = "lblCustomerPhone";
             lblCustomerPhone.Padding = new Padding(10);
             lblCustomerPhone.Size = new Size(310, 71);
@@ -294,22 +282,12 @@
             txtCustomerName.Size = new Size(200, 50);
             txtCustomerName.TabIndex = 20;
             // 
-            // txtCustomerID
-            // 
-            txtCustomerID.BackColor = Color.LightGreen;
-            txtCustomerID.BorderStyle = BorderStyle.FixedSingle;
-            txtCustomerID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtCustomerID.Location = new Point(885, 268);
-            txtCustomerID.Name = "txtCustomerID";
-            txtCustomerID.Size = new Size(200, 50);
-            txtCustomerID.TabIndex = 21;
-            // 
             // txtCustomerPhone
             // 
             txtCustomerPhone.BackColor = Color.LightGreen;
             txtCustomerPhone.BorderStyle = BorderStyle.FixedSingle;
             txtCustomerPhone.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtCustomerPhone.Location = new Point(885, 345);
+            txtCustomerPhone.Location = new Point(885, 290);
             txtCustomerPhone.Name = "txtCustomerPhone";
             txtCustomerPhone.Size = new Size(200, 50);
             txtCustomerPhone.TabIndex = 22;
@@ -422,6 +400,17 @@
             label3.TabIndex = 32;
             label3.Text = "Final";
             // 
+            // lbl_billid
+            // 
+            lbl_billid.AutoSize = true;
+            lbl_billid.Font = new Font("Segoe UI", 14F, FontStyle.Bold | FontStyle.Italic);
+            lbl_billid.Location = new Point(885, 96);
+            lbl_billid.Name = "lbl_billid";
+            lbl_billid.Size = new Size(44, 51);
+            lbl_billid.TabIndex = 4;
+            lbl_billid.Text = "0";
+            lbl_billid.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
@@ -439,7 +428,6 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(txtCustomerPhone);
-            Controls.Add(txtCustomerID);
             Controls.Add(txtCustomerName);
             Controls.Add(txtQtyProductB);
             Controls.Add(txtQtyProductA);
@@ -456,10 +444,10 @@
             Controls.Add(lblProductC);
             Controls.Add(lblTotalProductB);
             Controls.Add(lblProductB);
+            Controls.Add(lbl_billid);
             Controls.Add(lblTotalProductA);
             Controls.Add(lblProductA);
             Controls.Add(lblCustomerPhone);
-            Controls.Add(lblCustomerID);
             Controls.Add(lblCustomerName);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             ForeColor = Color.FromArgb(0, 160, 70);
@@ -481,7 +469,6 @@
         #endregion
 
         private Label lblCustomerName;
-        private Label lblCustomerID;
         private Label lblCustomerPhone;
         private Label lblProductA;
         private Label lblTotalProductA;
@@ -501,7 +488,6 @@
         private TextBox txtQtyProductA;
         private TextBox txtQtyProductB;
         private TextBox txtCustomerName;
-        private TextBox txtCustomerID;
         private TextBox txtCustomerPhone;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
@@ -513,5 +499,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Label lbl_billid;
     }
 }
