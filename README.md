@@ -1,6 +1,10 @@
 # KrispyKreme
 
-Change the id and password in the DatabaseHelper.cs according to your database.
+Change the uid and pwd in the DatabaseHelper.cs according to your database id and password.
+```
+private static string connectionString = "server=localhost;database=krispykreme;uid=root;pwd=1234;";
+
+```
 Create Database and Tables in MySQL Database using the below commands:
 
 ```
