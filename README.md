@@ -2,12 +2,12 @@
 
 Create Database and Tables in MySQL Database using the below commands:
 
-'''
+```
 CREATE DATABASE krispykreme;
 USE krispykreme;
-'''
+```
 
-'''
+```
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -24,4 +24,4 @@ CREATE TABLE bills (
     final_price DECIMAL(10,2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-'''
+```
