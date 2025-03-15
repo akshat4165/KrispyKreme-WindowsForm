@@ -22,13 +22,14 @@
             lblPassword = new Label();
             btnLogin = new Button();
             pictureBox1 = new PictureBox();
+            btn_adduser = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtUsername
             // 
             txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtUsername.Location = new Point(808, 609);
+            txtUsername.Location = new Point(798, 523);
             txtUsername.Margin = new Padding(5, 6, 5, 6);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(322, 50);
@@ -37,7 +38,7 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtPassword.Location = new Point(808, 704);
+            txtPassword.Location = new Point(798, 618);
             txtPassword.Margin = new Padding(5, 6, 5, 6);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
@@ -50,7 +51,7 @@
             lblUsername.BackColor = Color.Transparent;
             lblUsername.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold | FontStyle.Italic);
             lblUsername.ForeColor = Color.White;
-            lblUsername.Location = new Point(532, 607);
+            lblUsername.Location = new Point(522, 521);
             lblUsername.Margin = new Padding(5, 0, 5, 0);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(206, 50);
@@ -63,7 +64,7 @@
             lblPassword.BackColor = Color.Transparent;
             lblPassword.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold | FontStyle.Italic);
             lblPassword.ForeColor = Color.White;
-            lblPassword.Location = new Point(532, 702);
+            lblPassword.Location = new Point(522, 616);
             lblPassword.Margin = new Padding(5, 0, 5, 0);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(196, 50);
@@ -75,10 +76,10 @@
             btnLogin.BackColor = Color.DarkGreen;
             btnLogin.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(751, 828);
+            btnLogin.Location = new Point(896, 733);
             btnLogin.Margin = new Padding(5, 6, 5, 6);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(162, 80);
+            btnLogin.Size = new Size(193, 80);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -87,11 +88,23 @@
             // pictureBox1
             // 
             pictureBox1.Image = KrispyKreme.Properties.Resources.Krispy_Kreme_Login_Logo;
-            pictureBox1.Location = new Point(-110, -131);
+            pictureBox1.Location = new Point(-127, -82);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1797, 659);
+            pictureBox1.Size = new Size(1797, 465);
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            // 
+            // btn_adduser
+            // 
+            btn_adduser.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold);
+            btn_adduser.ForeColor = Color.White;
+            btn_adduser.Location = new Point(609, 733);
+            btn_adduser.Name = "btn_adduser";
+            btn_adduser.Size = new Size(193, 80);
+            btn_adduser.TabIndex = 4;
+            btn_adduser.Text = "Add User";
+            btn_adduser.UseVisualStyleBackColor = false;
+            btn_adduser.Click += btn_adduser_Click;
             // 
             // LoginForm
             // 
@@ -99,6 +112,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGreen;
             ClientSize = new Size(1648, 1034);
+            Controls.Add(btn_adduser);
             Controls.Add(btnLogin);
             Controls.Add(lblPassword);
             Controls.Add(lblUsername);
@@ -123,5 +137,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogin;
         private PictureBox pictureBox1;
+        private Button btn_adduser;
     }
 }

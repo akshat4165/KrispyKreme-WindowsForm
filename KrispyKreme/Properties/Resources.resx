@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Krispy Kreme Login Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Krispy Kreme Login Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="doughnuts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doughnuts1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -126,6 +129,9 @@
   </data>
   <data name="KrispyKreme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KrispyKreme1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Krispy Kreme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Krispy Kreme.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="caramel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caramel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,7 +142,7 @@
   <data name="sprinkles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sprinkles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Krispy Kreme Login Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Krispy Kreme Login Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="krispyadduser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\krispyadduser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

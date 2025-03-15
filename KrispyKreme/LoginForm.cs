@@ -28,5 +28,13 @@ namespace YourNamespace
             }
         }
 
+        private void btn_adduser_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Hide LoginForm
+            AddUser addUserForm = new AddUser();
+            addUserForm.ShowDialog(); // Show AddUser form as a modal dialog
+            this.Show(); // Show LoginForm again when AddUser is closed
+        }
+
     }
 }
