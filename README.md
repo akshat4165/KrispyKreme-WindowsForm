@@ -1,16 +1,16 @@
 # KrispyKreme
 
-Add MySQL Database in Visual Studio, follow these steps:
+### Add MySQL Database in Visual Studio, follow these steps:
 
 1. Click on Tools in the top menu > NuGet Package Manager > Manage NuGet Packages for Solution.
 2. In the Browse tab, search for MySql.Data.
 3. Click Install on the latest version of MySql.Data by Oracle.
 
-Change the uid and pwd in the DatabaseHelper.cs according to your database id and password.
+### Change the uid and pwd in the DatabaseHelper.cs according to your database id and password.
 ```
 private static string connectionString = "server=localhost;database=krispykreme;uid=root;pwd=1234;";
 ```
-Create Database and Tables in MySQL Database using the below commands:
+### Create Database and Tables in MySQL Database using the below commands:
 
 ```
 CREATE DATABASE krispykreme;
@@ -35,3 +35,13 @@ CREATE TABLE bills (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 ```
+## Screenshots
+
+![image_2025-03-14_032700866](https://github.com/user-attachments/assets/ab0f0d52-2cd4-4a6b-add7-f75fe070ed0e)
+
+![image_2025-03-14_032851790](https://github.com/user-attachments/assets/09923365-f30e-404d-9363-17536bc753db)
+
+![image_2025-03-14_033004364](https://github.com/user-attachments/assets/825e5e58-f657-4feb-b683-c868f13cb154)
+
+![image_2025-03-14_033110481](https://github.com/user-attachments/assets/8bc18c9f-3445-40b1-aaa9-0c7cfc1e2b12)
+
