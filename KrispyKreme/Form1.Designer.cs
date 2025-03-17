@@ -61,6 +61,7 @@
             label2 = new Label();
             label3 = new Label();
             lbl_billid = new Label();
+            btn_Back = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -214,7 +215,7 @@
             btnCalculate.FlatAppearance.BorderColor = Color.FromArgb(0, 160, 70);
             btnCalculate.FlatStyle = FlatStyle.Flat;
             btnCalculate.ForeColor = Color.White;
-            btnCalculate.Location = new Point(494, 1219);
+            btnCalculate.Location = new Point(565, 1230);
             btnCalculate.Name = "btnCalculate";
             btnCalculate.Size = new Size(150, 46);
             btnCalculate.TabIndex = 14;
@@ -228,7 +229,7 @@
             btnClear.FlatAppearance.BorderColor = Color.FromArgb(0, 160, 70);
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(949, 1219);
+            btnClear.Location = new Point(1013, 1230);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(150, 46);
             btnClear.TabIndex = 15;
@@ -360,7 +361,7 @@
             // 
             btnNext.BackColor = Color.Transparent;
             btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Location = new Point(712, 1219);
+            btnNext.Location = new Point(779, 1230);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(150, 46);
             btnNext.TabIndex = 29;
@@ -411,12 +412,23 @@
             lbl_billid.Text = "0";
             lbl_billid.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btn_Back
+            // 
+            btn_Back.Location = new Point(343, 1230);
+            btn_Back.Name = "btn_Back";
+            btn_Back.Size = new Size(150, 46);
+            btn_Back.TabIndex = 33;
+            btn_Back.Text = "Back";
+            btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1554, 1329);
+            Controls.Add(btn_Back);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -500,5 +512,6 @@
         private Label label2;
         private Label label3;
         private Label lbl_billid;
+        private Button btn_Back;
     }
 }

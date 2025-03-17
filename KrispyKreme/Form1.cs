@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using KrispyKreme;
 
 namespace KrispyKreme
 {
@@ -25,7 +26,7 @@ namespace KrispyKreme
         private void LoadLatestBillID()
         {
             int latestBillID = DatabaseHelper.GetLatestBillID(loggedInUser);
-            lbl_billid.Text = "Bill ID: " + (latestBillID);
+            lbl_billid.Text = "Bill ID: " + (latestBillID + 1);
         }
 
         private int GetQuantity(TextBox textBox)
@@ -165,6 +166,13 @@ namespace KrispyKreme
             this.Hide();
             Form2 form2 = new Form2(billDetails.ToString(), loggedInUser); // ✅ Fix: Pass username
             form2.Show();
+        }
+
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            this.Tag = "restart"; // ✅ Mark that we want to restart login
+            this.Close(); // ✅ Closes Form1, triggering a restart in Program.cs
         }
 
     }

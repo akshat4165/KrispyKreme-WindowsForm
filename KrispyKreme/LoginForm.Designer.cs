@@ -1,4 +1,4 @@
-﻿namespace YourNamespace
+﻿namespace KrispyKreme
 {
     partial class LoginForm
     {

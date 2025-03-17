@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using KrispyKreme;
 
-namespace YourNamespace
+namespace KrispyKreme
 {
     public partial class LoginForm : Form
     {

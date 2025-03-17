@@ -1,25 +1,34 @@
-﻿using YourNamespace;
+﻿using System;
+using System.Windows.Forms;
 
 namespace KrispyKreme
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
 
-            LoginForm loginForm = new LoginForm();
-            if (loginForm.ShowDialog() == DialogResult.OK)
+            bool restart;
+            do
             {
-                // ✅ Retrieve the username stored in LoginForm.Tag
-                string loggedInUser = loginForm.Tag as string ?? "default_user";
-                Application.Run(new Form1(loggedInUser));
-            }
+                restart = false;
+                LoginForm loginForm = new LoginForm();
 
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    string loggedInUser = loginForm.Tag as string ?? "default_user";
+
+                    Form1 mainForm = new Form1(loggedInUser);
+
+                    // ✅ Handle logout properly
+                    mainForm.FormClosed += (s, e) => { restart = mainForm.Tag as string == "restart"; };
+
+                    Application.Run(mainForm);
+                }
+
+            } while (restart); // ✅ Restart login process when logging out
         }
     }
 }
