@@ -25,7 +25,7 @@ namespace KrispyKreme
         private void LoadLatestBillID()
         {
             int latestBillID = DatabaseHelper.GetLatestBillID(loggedInUser);
-            lbl_billid.Text = "Bill ID: " + (latestBillID + 1);
+            lbl_billid.Text = "Bill ID: " + (latestBillID);
         }
 
         private int GetQuantity(TextBox textBox)
@@ -143,7 +143,7 @@ namespace KrispyKreme
 
             billDetails.AppendLine("----------------------------------");
             billDetails.AppendLine($"Overall Total:\t{lblOverallTotal.Text.Replace("₹", " ").Trim()}");
-            billDetails.AppendLine($"Discount:\t{lblDiscount.Text.Replace("₹", " ").Trim()}");
+            billDetails.AppendLine($"Discount:\t-{lblDiscount.Text.Replace("₹", " ").Trim()}");
             billDetails.AppendLine($"Final Price:\t{lblFinalPrice.Text.Replace("₹", " ").Trim()}");
             billDetails.AppendLine("----------------------------------");
             billDetails.AppendLine("   Thank you for visiting Krispy Kreme!   ");
