@@ -19,6 +19,10 @@ namespace YourNamespace
             if (DatabaseHelper.ValidateUser(username, password))
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // ✅ Store the logged-in username
+                this.Tag = username;
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -27,6 +31,7 @@ namespace YourNamespace
                 MessageBox.Show("Invalid username or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btn_adduser_Click(object sender, EventArgs e)
         {

@@ -1,4 +1,4 @@
-using YourNamespace;
+﻿using YourNamespace;
 
 namespace KrispyKreme
 {
@@ -12,14 +12,14 @@ namespace KrispyKreme
         {
             ApplicationConfiguration.Initialize();
 
-            // Create an instance of LoginForm
             LoginForm loginForm = new LoginForm();
-
-            // Show LoginForm first
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new Form1()); // Open Form1 after successful login
+                // ✅ Retrieve the username stored in LoginForm.Tag
+                string loggedInUser = loginForm.Tag as string ?? "default_user";
+                Application.Run(new Form1(loggedInUser));
             }
+
         }
     }
 }

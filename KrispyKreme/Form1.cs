@@ -7,20 +7,52 @@ namespace KrispyKreme
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private string loggedInUser;
+
+        public Form1(string username) // Pass the logged-in username
         {
             InitializeComponent();
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            loggedInUser = username;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DatabaseHelper.EnsureUserTableExists(loggedInUser);
             LoadLatestBillID();
         }
 
         private void LoadLatestBillID()
         {
-            int latestBillID = DatabaseHelper.GetLatestBillID();
+            int latestBillID = DatabaseHelper.GetLatestBillID(loggedInUser);
             lbl_billid.Text = "Bill ID: " + (latestBillID + 1);
+        }
+
+        private int GetQuantity(TextBox textBox)
+        {
+            if (int.TryParse(textBox.Text, out int quantity) && quantity >= 0)
+            {
+                return quantity;
+            }
+            return -1;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCustomerName.Clear();
+            txtCustomerPhone.Clear();
+            txtQtyProductA.Clear();
+            txtQtyProductB.Clear();
+            txtQtyProductC.Clear();
+            txtQtyProductD.Clear();
+
+            lblTotalProductA.Text = "₹0";
+            lblTotalProductB.Text = "₹0";
+            lblTotalProductC.Text = "₹0";
+            lblTotalProductD.Text = "₹0";
+            lblOverallTotal.Text = "₹0";
+            lblDiscount.Text = "₹0";
+            lblFinalPrice.Text = "₹0";
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -61,15 +93,6 @@ namespace KrispyKreme
             lblFinalPrice.Text = "₹" + finalPrice;
         }
 
-        private int GetQuantity(TextBox textBox)
-        {
-            if (int.TryParse(textBox.Text, out int quantity) && quantity >= 0)
-            {
-                return quantity;
-            }
-            return -1;
-        }
-
         private double CalculateDiscount(int total)
         {
             if (total > 2000) return total * 0.20;
@@ -79,25 +102,7 @@ namespace KrispyKreme
             return 0;
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtCustomerName.Clear();
-            txtCustomerPhone.Clear();
-            txtQtyProductA.Clear();
-            txtQtyProductB.Clear();
-            txtQtyProductC.Clear();
-            txtQtyProductD.Clear();
-
-            lblTotalProductA.Text = "₹0";
-            lblTotalProductB.Text = "₹0";
-            lblTotalProductC.Text = "₹0";
-            lblTotalProductD.Text = "₹0";
-            lblOverallTotal.Text = "₹0";
-            lblDiscount.Text = "₹0";
-            lblFinalPrice.Text = "₹0";
-        }
-
-        private void btnNext_Click_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
             string customerName = txtCustomerName.Text.Trim();
             string customerPhone = txtCustomerPhone.Text.Trim();
@@ -116,41 +121,51 @@ namespace KrispyKreme
 
             string billID = lbl_billid.Text.Replace("Bill ID: ", "");
             StringBuilder billDetails = new StringBuilder();
-            billDetails.AppendLine("----- KRISPY KREME BILL -----");
+            billDetails.AppendLine("==================================");
+            billDetails.AppendLine("        KRISPY KREME BILL         ");
+            billDetails.AppendLine("==================================");
             billDetails.AppendLine($"Bill ID: {billID}");
             billDetails.AppendLine($"Customer Name: {customerName}");
             billDetails.AppendLine($"Phone: {customerPhone}");
+            billDetails.AppendLine("----------------------------------");
+            billDetails.AppendLine("Item                  Qty   Price ");
             billDetails.AppendLine("----------------------------------");
 
             int unitPriceA = 100, unitPriceB = 135, unitPriceC = 150, unitPriceD = 155;
             int qtyA = GetQuantity(txtQtyProductA), qtyB = GetQuantity(txtQtyProductB),
                 qtyC = GetQuantity(txtQtyProductC), qtyD = GetQuantity(txtQtyProductD);
 
-            if (qtyA > 0) billDetails.AppendLine($"Original Glaze: {qtyA} x ₹{unitPriceA} = ₹{qtyA * unitPriceA}");
-            if (qtyB > 0) billDetails.AppendLine($"Caramel Glazed: {qtyB} x ₹{unitPriceB} = ₹{qtyB * unitPriceB}");
-            if (qtyC > 0) billDetails.AppendLine($"Sparkle: {qtyC} x ₹{unitPriceC} = ₹{qtyC * unitPriceC}");
-            if (qtyD > 0) billDetails.AppendLine($"Chocolate Sprinkle: {qtyD} x ₹{unitPriceD} = ₹{qtyD * unitPriceD}");
+            // Save without ₹ symbol
+            if (qtyA > 0) billDetails.AppendLine($"Original Glaze       {qtyA} x {unitPriceA}  = {qtyA * unitPriceA}");
+            if (qtyB > 0) billDetails.AppendLine($"Caramel Glazed       {qtyB} x {unitPriceB}  = {qtyB * unitPriceB}");
+            if (qtyC > 0) billDetails.AppendLine($"Sparkle              {qtyC} x {unitPriceC}  = {qtyC * unitPriceC}");
+            if (qtyD > 0) billDetails.AppendLine($"Chocolate Sprinkle   {qtyD} x {unitPriceD}  = {qtyD * unitPriceD}");
 
             billDetails.AppendLine("----------------------------------");
-            billDetails.AppendLine($"Overall Total: {lblOverallTotal.Text}");
-            billDetails.AppendLine($"Discount: {lblDiscount.Text}");
-            billDetails.AppendLine($"Final Price: {lblFinalPrice.Text}");
+            billDetails.AppendLine($"Overall Total:\t{lblOverallTotal.Text.Replace("₹", " ").Trim()}");
+            billDetails.AppendLine($"Discount:\t{lblDiscount.Text.Replace("₹", " ").Trim()}");
+            billDetails.AppendLine($"Final Price:\t{lblFinalPrice.Text.Replace("₹", " ").Trim()}");
             billDetails.AppendLine("----------------------------------");
-            billDetails.AppendLine("Thank you for visiting Krispy Kreme!");
+            billDetails.AppendLine("   Thank you for visiting Krispy Kreme!   ");
+            billDetails.AppendLine("==================================");
 
-            // Save bill to the database
+            // Save bill to MySQL (without ₹ symbol)
             DatabaseHelper.SaveBill(
+                loggedInUser,
                 customerName,
                 customerPhone,
                 billDetails.ToString(),
-                Convert.ToDecimal(lblOverallTotal.Text.Replace("₹", "")),
-                Convert.ToDecimal(lblDiscount.Text.Replace("₹", "")),
-                Convert.ToDecimal(lblFinalPrice.Text.Replace("₹", ""))
+                Convert.ToDecimal(lblOverallTotal.Text.Replace("₹", "").Trim()),
+                Convert.ToDecimal(lblDiscount.Text.Replace("₹", "").Trim()),
+                Convert.ToDecimal(lblFinalPrice.Text.Replace("₹", "").Trim())
             );
 
+
+
             this.Hide();
-            Form2 form2 = new Form2(billDetails.ToString());
+            Form2 form2 = new Form2(billDetails.ToString(), loggedInUser); // ✅ Fix: Pass username
             form2.Show();
         }
+
     }
 }

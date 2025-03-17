@@ -1,38 +1,57 @@
 ﻿using System;
 using System.Drawing.Printing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace KrispyKreme
 {
     public partial class Form2 : Form
     {
-        private string billDetails;
+        private string billDetails, loggedInUser;
 
-        public Form2(string billDetails)
+        public Form2(string billDetails, string username)
         {
             InitializeComponent();
+            loggedInUser = username;
             this.billDetails = billDetails;
             btnBack.Click += new EventHandler(btnBack_Click);
             btnPrint.Click += new EventHandler(btnPrint_Click);
         }
 
+
         private void Form2_Load(object sender, EventArgs e)
         {
-            lblBillDetails.Text = billDetails;
+            string formattedBill = billDetails
+            .Replace("Overall Total:", "Overall Total: ₹")
+            .Replace("Discount:", "Discount: ₹")
+            .Replace("Final Price:", "Final Price: ₹")
+            .Replace(" x ", " x ₹") // Ensures ₹ appears before unit price
+            .Replace(" = ", " = ₹"); // Ensures ₹ appears before total price
+
+            lblBillDetails.Text = formattedBill;
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnBack_Click(object? sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to go back?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
             {
+                // Step 1: Delete the most recent bill for the logged-in user
+                DatabaseHelper.DeleteLatestBill(loggedInUser);  // Use loggedInUsername
+
+                // Step 2: Close the current form
                 this.Close();
-                Form1 form1 = new Form1();
+
+                // Step 3: Reopen Form1 with the same user
+                Form1 form1 = new Form1(loggedInUser); // Use loggedInUsername
                 form1.Show();
             }
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+
+
+        private void btnPrint_Click(object? sender, EventArgs e)
         {
             PrintDocument printDocument = new PrintDocument();
             printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);

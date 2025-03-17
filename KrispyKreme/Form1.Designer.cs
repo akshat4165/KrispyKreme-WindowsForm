@@ -56,7 +56,7 @@
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
-            btnNext_Click = new Button();
+            btnNext = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -356,17 +356,17 @@
             pictureBox6.TabIndex = 28;
             pictureBox6.TabStop = false;
             // 
-            // btnNext_Click
+            // btnNext
             // 
-            btnNext_Click.BackColor = Color.Transparent;
-            btnNext_Click.FlatStyle = FlatStyle.Flat;
-            btnNext_Click.Location = new Point(712, 1219);
-            btnNext_Click.Name = "btnNext_Click";
-            btnNext_Click.Size = new Size(150, 46);
-            btnNext_Click.TabIndex = 29;
-            btnNext_Click.Text = "Next";
-            btnNext_Click.UseVisualStyleBackColor = false;
-            btnNext_Click.Click += btnNext_Click_Click;
+            btnNext.BackColor = Color.Transparent;
+            btnNext.FlatStyle = FlatStyle.Flat;
+            btnNext.Location = new Point(712, 1219);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(150, 46);
+            btnNext.TabIndex = 29;
+            btnNext.Text = "Next";
+            btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
             // label1
             // 
@@ -420,7 +420,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(btnNext_Click);
+            Controls.Add(btnNext);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
@@ -495,7 +495,7 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private Button btnNext_Click;
+        private Button btnNext;
         private Label label1;
         private Label label2;
         private Label label3;
